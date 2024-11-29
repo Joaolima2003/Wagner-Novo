@@ -1,0 +1,26 @@
+{% extends 'baseplataforma.html'%}
+
+
+
+{% block conteudo %}
+
+<div class="container d-flex flex-column justify-content-center align-items-center" style="min-height: 100vh;">
+    <h2 class="mb-5">Confirmar Deleção da Reserva</h2>
+    <div class="alert alert-warning" role="alert">
+        <p>Tem certeza de que deseja deletar a reserva de <strong>{{ object.hospede.username }}</strong> para o quarto <strong>{{ object.tipo_quarto.nome }}</strong>?</p>
+    </div>
+    <form method="POST">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Sim, deletar</button>
+        <a href="{% url 'listar_reserva' %}" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>
+
+{% endblock %}
+
+
+
+
+
+
+

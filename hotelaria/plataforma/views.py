@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse_lazy 
-from django.views.generic.edit import CreateView, UpdateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from usuarios.models import Reserva 
 from usuarios.forms import ReservaForm
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -20,6 +20,15 @@ class CriarReservaView(LoginRequiredMixin, CreateView):
     success_url = reverse_lazy('reserva_sucesso') #reserva sucesso
     login_url = 'login'
     redirect_field_name = 'next'
+    
+    
+    def form_valid(self, form):
+        form.instance.hospede = self.request.user
+        messages.success(self.request, "Reserva criada com sucesso!") 
+        return super().form_valid(form) 
+    
+   
+    
 
 class EditarReservaView(LoginRequiredMixin, UpdateView): 
     model = Reserva 
@@ -46,8 +55,29 @@ class ListarReservasView(LoginRequiredMixin, ListView):
     context_object_name = 'reservas' 
     
     def get_queryset(self): 
+       return Reserva.objects.filter(hospede=self.request.user)
+
+
+
+class DeletarReservaView(LoginRequiredMixin, DeleteView):
+    model = Reserva 
+    template_name = 'deletar_reserva.html'
+    success_url = reverse_lazy('listar_reserva')
+    login_url = 'login' 
+    redirect_field_name = 'next'
+    
+    def get_queryset(self): 
         return Reserva.objects.filter(hospede=self.request.user)
+
+
 
 @login_required
 def reserva_sucesso(request): 
     return render(request, 'reserva_sucesso.html')
+
+
+
+
+
+
+    

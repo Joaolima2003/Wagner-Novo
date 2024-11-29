@@ -17,11 +17,7 @@
 {% endif %}
     <form method="POST" class="border p-4 shadow-sm rounded bg-dark">
         {% csrf_token %}
-        <div class="form-group mb-3 form-control">
-            {{form.hospede.label_tag}}
-            {{form.hospede}}
-        </div>
-
+        
         <div class="form-group mb-3 form-control ">
             {{form.data_check_in.label_tag}}
             {{form.data_check_in}}
@@ -39,7 +35,7 @@
         
         
         <button type="submit" class="btn btn-primary">Editar</button>
-    
+        <a href="{% url 'listar_reserva'%}" class="btn btn-danger">Cancelar</a>
     </form>
     
 </div>

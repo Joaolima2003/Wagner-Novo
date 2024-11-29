@@ -14,7 +14,9 @@
          <strong>Check-in:</strong> {{ reserva.data_check_in }}<br> 
          <strong>Check-out:</strong> {{ reserva.data_check_out }}<br>
          <strong>Tipo de Quarto:</strong> {{ reserva.tipo_quarto.nome }}
-          <a href="{% url 'editar_reserva' reserva.pk %}" class="btn btn-sm btn-warning float-end">Editar</a> </li> 
+         <div class="mt-2 d-flex justify-content-end"> 
+          <a href="{% url 'editar_reserva' reserva.pk %}" class="btn btn-sm btn-warning me-2">Editar</a> 
+          <a href="{% url 'deletar_reserva' reserva.pk %}" class="btn btn-sm btn-danger">Deletar</a> </div>  
            {% endfor %} </ul>
            </div>
 
