@@ -1,0 +1,18 @@
+#logout{
+    background-color: black;
+    
+}
+
+#imagemHome{
+    width: 400px;
+    height: auto;
+}
+
+#bodyHome{
+    background-color: cadetblue;
+    scroll-behavior: smooth;
+}
+
+#minhaNavbar { 
+    background-color: #00fcc5; color: #ffffff;  
+}

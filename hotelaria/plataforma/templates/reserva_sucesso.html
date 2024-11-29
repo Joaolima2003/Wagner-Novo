@@ -1,0 +1,20 @@
+{% extends 'baseplataforma.html' %}
+
+{% block title %} Sucesso da Reserva{% endblock %}
+
+{% block conteudo %} 
+
+<div class="container mt-5">
+     <div class="alert alert-success" role="alert">
+        <h4 class="alert-heading">Reserva Criada ou Editada com Sucesso!</h4> 
+        <p>Sua reserva foi realizada ou editada com sucesso. Aguardamos sua chegada!</p> 
+        <hr> 
+        <p class="mb-0">Se precisar de mais alguma coisa, não hesite em nos contatar.</p>
+        </div> 
+        <a href="{% url 'home' %}" class="btn btn-primary">Voltar à Página Inicial</a>
+        <a href="{% url 'criar_reserva' %}" class="btn btn-secondary">Fazer Outra Reserva</a>
+     </div>
+
+
+
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'baseplataforma.html'%}
+{% load static %}
+
+{% block conteudo %} 
+
+{% if messages %} 
+    {% for message in messages %} 
+    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert"> {{ message }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"> </button> 
+</div> 
+    {% endfor %} 
+
+{% endif %}
+
+
+<div class="container d-flex flex-column justify-content-center align-items-center" style="min-height: 100vh;">
+    <div class="row">
+        <div class="col-md-4">
+            <h4>Bem vindo ao Paraíso</h4>
+            <p >É com imenso prazer que o recebemos em nosso hotel, onde cada detalhe foi pensado para proporcionar uma experiência única e inesquecível. Aqui, o conforto, a sofisticação e o bem-estar estão em perfeita harmonia para transformar sua estadia em momentos de pura satisfação. Desde o primeiro contato, nossa dedicada equipe está pronta para atendê-lo com atenção e carinho, garantindo que suas necessidades sejam atendidas com a máxima excelência. Desfrute de nossas acomodaçõesluxuosas, projetadas para oferecer um refúgio tranquilo, onde você pode relaxar e revitalizar-se.</p>
+        </div>
+
+        <div class="col-md-4 ms-auto">
+            <img id="imagemHome" src="{% static 'img\hotel.jfif' %}">
+        </div>
+    </div>
+
+</div>
+
+
+
+{% endblock%}
+
